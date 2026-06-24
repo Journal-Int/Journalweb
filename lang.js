@@ -63,13 +63,22 @@ function setLang(lang) {
     langMenu.style.display = 'none';
   }
 }
-function toggleLangMenu(btn) {
-  const menu = document.getElementById('lang-menu');
-  if (!menu) return;
-  
-  const isOpen = menu.style.display === 'flex';
-  menu.style.display = isOpen ? 'none' : 'flex';
-}
+function toggleLangMenu() {
+            var menu = document.getElementById("lang-menu");
+            if (menu.style.display === "flex") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "flex";
+            }
+        }
+        window.onclick = function(event) {
+            if (!event.target.matches('.lang-btn')) {
+                var menu = document.getElementById("lang-menu");
+                if (menu && menu.style.display === "flex") {
+                    menu.style.display = "none";
+                }
+            }
+        }
 
 window.addEventListener('click', function(e) {
   const switcher = document.querySelector('.lang-switcher');
